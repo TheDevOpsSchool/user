@@ -1,4 +1,4 @@
-name: push go app
+name: start build deploy
 on: 
   push: 
     branches: 
@@ -31,5 +31,15 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-      
-      
+    
+    #Deploying to minikube(Kubernetes Cluster)
+  deploy:       
+    - name: Trigger deploy
+      uses: Consensys/kubernetes-action@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: apply manifest.yml
+
+
+    
