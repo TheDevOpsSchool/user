@@ -42,7 +42,7 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: apply manifest.yml
+        args: apply -f manifest.yml
 
 
     
