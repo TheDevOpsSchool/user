@@ -33,7 +33,10 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     
     #Deploying to minikube(Kubernetes Cluster)
-  deploy:       
+  deploy: 
+    runs-on: ubuntu-latest
+    
+    steps:       
     - name: Trigger deploy
       uses: Consensys/kubernetes-action@master
       env:
