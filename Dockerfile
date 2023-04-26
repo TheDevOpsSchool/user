@@ -1,5 +1,9 @@
 From golang:1.19-alpine
 
+ENV MONGO_USER=""
+ENV MONGO_PASS=""
+ENV MONGO_HOST=""
+
 WORKDIR /app
 COPY . /app
 RUN whoami

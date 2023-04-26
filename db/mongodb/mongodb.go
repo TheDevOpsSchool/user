@@ -107,10 +107,7 @@ func (m *MongoCard) AddID() {
 
 // CreateUser Insert user to MongoDB, including connected addresses and cards, update passed in user with Ids
 func (m *Mongo) CreateUser(u *users.User) error {
-	s := m.Session.Copy()
-	defer s.Close()
-	id := bson.NewObjectId()
-	mu := New()
+	s := m.Session.Copy()db.Register("mongodb", &mongodb.Mongo{})
 	mu.User = *u
 	mu.ID = id
 	var carderr error
