@@ -14,7 +14,8 @@ spec:
       labels:
         app: user-service
     spec:
-      containers:
       - name: user-service
         image: thedevopsschool/user-service
-        
+        envFrom:
+          - secretRef:
+              name: thedevopsschoolsecret
