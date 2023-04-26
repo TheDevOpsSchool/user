@@ -39,12 +39,19 @@ jobs:
     needs: build_and_push_to_docker
     steps: 
     - uses: actions/checkout@master      
-    - name: Trigger deploy
+    - name: deploy pods
       uses: Consensys/kubernetes-action@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
         args: apply -f manifest.yml
+    - name: deploy secrets
+      uses: Consensys/kubernetes-action@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      with:
+        args: apply -f secrets.yml
+        
 
 
     

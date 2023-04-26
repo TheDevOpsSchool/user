@@ -3,6 +3,7 @@ From golang:1.19-alpine
 ENV MONGO_USER=""
 ENV MONGO_PASS=""
 ENV MONGO_HOST=""
+ENV USER_DATABASE="MONGO"
 
 WORKDIR /app
 COPY . /app
