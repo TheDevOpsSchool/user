@@ -17,6 +17,9 @@ spec:
       containers:
       - name: user-service
         image: thedevopsschool/user-service
+        env: 
+        - name: mongo
+          value: my-service:80
         envFrom:
           - secretRef:
               name: thedevopsschoolsecret
