@@ -3,7 +3,7 @@ From golang:1.19-alpine
 ENV MONGO_USER=""
 ENV MONGO_PASS=""
 ENV MONGO_HOST=""
-ENV USER_DATABASE="mongdb"
+ENV USER_DATABASE="mongodb"
 
 WORKDIR /app
 COPY . /app
